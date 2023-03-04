@@ -68,6 +68,12 @@ public class GameManager : MonoBehaviour
         Debug.Log(i);
 
     }
+
+    public void CountBall()
+    {
+        CountOfBallThrown++;
+        _BallAreaTechnicalOperation[0].CountText.text = CountOfBallThrown + "/" + _BallAreaTechnicalOperation[0].GoalBall;
+    }
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
