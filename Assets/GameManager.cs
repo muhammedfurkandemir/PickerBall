@@ -1,17 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using TMPro;
+
+[Serializable]
+public class BallAreaTechnicalOperation
+{
+    public Animator BallAreaElevator;
+    public TextMeshProUGUI CountText;
+    public int GoalBall;
+}
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject pickerObject;
+    [SerializeField] private GameObject BallControlObject;
     [SerializeField] private bool pickerIsMove;
+
+    int CountOfBallThrown;
+
+    [SerializeField] private List<BallAreaTechnicalOperation> _BallAreaTechnicalOperation = new List<BallAreaTechnicalOperation>();
     void Start()
     {
-        pickerIsMove = true; 
+        pickerIsMove = true;
+
+        _BallAreaTechnicalOperation[0].CountText.text = CountOfBallThrown + "/" + _BallAreaTechnicalOperation[0].GoalBall;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (pickerIsMove)
@@ -33,5 +49,29 @@ public class GameManager : MonoBehaviour
             }
 
         }
+    }
+
+    public void LimitReached()
+    {
+        pickerIsMove = false;
+        Collider[] Collhit = Physics.OverlapBox(BallControlObject.transform.position, BallControlObject.transform.localScale / 2,
+            Quaternion.identity); //https://docs.unity3d.com/ScriptReference/Physics.OverlapBox.html
+
+        int i = 0;
+        while (i<=Collhit.Length-1)
+        {
+            Collhit[i].GetComponent<Rigidbody>().AddForce(new Vector3(0, 0,.6f),ForceMode.Impulse);
+            // https://docs.unity3d.com/ScriptReference/Rigidbody.AddForce.html
+            // https://docs.unity3d.com/ScriptReference/ForceMode.html
+            i++;
+        }
+        Debug.Log(i);
+
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(BallControlObject.transform.position, BallControlObject.transform.localScale);
+       // https://docs.unity3d.com/ScriptReference/Gizmos.html
     }
 }

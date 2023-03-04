@@ -9,7 +9,7 @@ public class reporter : MonoBehaviour
     {
         if (other.CompareTag("picker_trigger"))
         {
-
+            _GameManager.LimitReached();
         }
     }
 }
