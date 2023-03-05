@@ -16,9 +16,10 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject pickerObject;
     [SerializeField] private GameObject BallControlObject;
-    [SerializeField] private bool pickerIsMove;
+    public bool pickerIsMove;
 
     int CountOfBallThrown;
+
     int TotalCheckPoint;
     int CurentCheckPointIndex;
 
@@ -56,6 +57,7 @@ public class GameManager : MonoBehaviour
     public void LimitReached()
     {
         pickerIsMove = false;
+        Invoke("CheckPointFinish", 2f);
         Collider[] Collhit = Physics.OverlapBox(BallControlObject.transform.position, BallControlObject.transform.localScale / 2,
             Quaternion.identity); //https://docs.unity3d.com/ScriptReference/Physics.OverlapBox.html
 
@@ -71,6 +73,19 @@ public class GameManager : MonoBehaviour
 
     }
 
+    void CheckPointFinish()
+    {
+        if (CountOfBallThrown>= _BallAreaTechnicalOperation[0].GoalBall)
+        {
+            print("kazandın");
+            _BallAreaTechnicalOperation[0].BallAreaElevator.Play("Elevator");
+        }
+        else
+        {
+            print("kaybettin");
+        }
+    }
+   
     public void CountBall()
     {
         CountOfBallThrown++;
