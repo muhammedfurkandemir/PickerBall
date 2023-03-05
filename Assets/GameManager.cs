@@ -10,19 +10,17 @@ public class BallAreaTechnicalOperation
     public Animator BallAreaElevator;
     public TextMeshProUGUI CountText;
     public int GoalBall;
-    public GameObject[] CheckBalls;
 }
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject pickerObject;
     [SerializeField] private GameObject BallControlObject;
-    public  bool pickerIsMove;
+    [SerializeField] private bool pickerIsMove;
 
     int CountOfBallThrown;
-    public string a;
-    public string b;
-    public string c;
+    int TotalCheckPoint;
+    int CurentCheckPointIndex;
 
     [SerializeField] private List<BallAreaTechnicalOperation> _BallAreaTechnicalOperation = new List<BallAreaTechnicalOperation>();
     void Start()
@@ -58,36 +56,19 @@ public class GameManager : MonoBehaviour
     public void LimitReached()
     {
         pickerIsMove = false;
-        Invoke("CheckPointControl", 2f);
         Collider[] Collhit = Physics.OverlapBox(BallControlObject.transform.position, BallControlObject.transform.localScale / 2,
             Quaternion.identity); //https://docs.unity3d.com/ScriptReference/Physics.OverlapBox.html
 
         int i = 0;
         while (i<=Collhit.Length-1)
         {
-            Collhit[i].GetComponent<Rigidbody>().AddForce(new Vector3(0, 0,.7f),ForceMode.Impulse);
+            Collhit[i].GetComponent<Rigidbody>().AddForce(new Vector3(0, 0,.6f),ForceMode.Impulse);
             // https://docs.unity3d.com/ScriptReference/Rigidbody.AddForce.html
             // https://docs.unity3d.com/ScriptReference/ForceMode.html
             i++;
         }
         Debug.Log(i);
 
-    }
-    void CheckPointControl()
-    {
-        if (CountOfBallThrown>=_BallAreaTechnicalOperation[0].GoalBall)
-        {
-            print("Kazandın");
-            _BallAreaTechnicalOperation[0].BallAreaElevator.Play("Elevator");
-            foreach (var item in _BallAreaTechnicalOperation[0].CheckBalls)
-            {
-                item.SetActive(false);
-            }
-        }
-        else
-        {
-            print("Kaybettin");
-        }
     }
 
     public void CountBall()
