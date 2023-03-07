@@ -7,6 +7,7 @@ using TMPro;
 [Serializable]
 public class BallAreaTechnicalOperation
 {
+    public List<GameObject> Balls;
     public Animator BallAreaElevator;
     public TextMeshProUGUI CountText;
     public int GoalBall;
@@ -27,8 +28,12 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         pickerIsMove = true;
-
-        _BallAreaTechnicalOperation[0].CountText.text = CountOfBallThrown + "/" + _BallAreaTechnicalOperation[0].GoalBall;
+        TotalCheckPoint = _BallAreaTechnicalOperation.Count-1;
+        for (int i = 0; i < _BallAreaTechnicalOperation.Count; i++)
+        {
+            _BallAreaTechnicalOperation[i].CountText.text = CountOfBallThrown + "/" + _BallAreaTechnicalOperation[i].GoalBall;
+        }
+       
     }
 
     void Update()
@@ -75,10 +80,25 @@ public class GameManager : MonoBehaviour
 
     void CheckPointFinish()
     {
-        if (CountOfBallThrown>= _BallAreaTechnicalOperation[0].GoalBall)
+        if (CountOfBallThrown>= _BallAreaTechnicalOperation[CurentCheckPointIndex].GoalBall)
         {
             print("kazandın");
-            _BallAreaTechnicalOperation[0].BallAreaElevator.Play("Elevator");
+            _BallAreaTechnicalOperation[CurentCheckPointIndex].BallAreaElevator.Play("Elevator");
+            foreach (var item in _BallAreaTechnicalOperation[CurentCheckPointIndex].Balls)
+            {
+                item.SetActive(false);
+            }           
+            if (CurentCheckPointIndex==TotalCheckPoint)
+            {
+                print("oyun bitti");
+                Time.timeScale = 0;
+            }
+            else
+            {
+                CurentCheckPointIndex++;
+                CountOfBallThrown = 0;
+            }
+            
         }
         else
         {
@@ -89,7 +109,8 @@ public class GameManager : MonoBehaviour
     public void CountBall()
     {
         CountOfBallThrown++;
-        _BallAreaTechnicalOperation[0].CountText.text = CountOfBallThrown + "/" + _BallAreaTechnicalOperation[0].GoalBall;
+        _BallAreaTechnicalOperation[CurentCheckPointIndex].CountText.text = CountOfBallThrown + "/" +
+            _BallAreaTechnicalOperation[CurentCheckPointIndex].GoalBall;
     }
     private void OnDrawGizmos()
     {
