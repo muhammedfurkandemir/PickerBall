@@ -82,8 +82,9 @@ public class GameManager : MonoBehaviour
     {
         if (CountOfBallThrown>= _BallAreaTechnicalOperation[CurentCheckPointIndex].GoalBall)
         {
-            print("kazandın");
             _BallAreaTechnicalOperation[CurentCheckPointIndex].BallAreaElevator.Play("Elevator");
+            print("kazandın");
+           
             foreach (var item in _BallAreaTechnicalOperation[CurentCheckPointIndex].Balls)
             {
                 item.SetActive(false);
