@@ -6,11 +6,11 @@ public class ElevatorState : MonoBehaviour
 {
     [SerializeField] private GameManager _GameManger;
     [SerializeField] private Animator _Animator;
-    void GateIsUp()
+    public void GateIsUp()
     {
         _Animator.Play("GateIsUp");
     }
-    void finish()
+    public void Finish()
     {
         _GameManger.pickerIsMove = true;
     }

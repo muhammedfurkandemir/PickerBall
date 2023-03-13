@@ -344,7 +344,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 2
-    functionName: finish
+    functionName: Finish
     data: 
     objectReferenceParameter: {fileID: 11500000, guid: 12427115f1079d048ade655991d62cb0, type: 3}
     floatParameter: 0
