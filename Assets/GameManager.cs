@@ -18,8 +18,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject PickerObject;
     [SerializeField] private GameObject[] PickerPalletObject;
     bool PickerPalletActive;
+    [SerializeField] private GameObject[] BonusBalls;
     [SerializeField] private GameObject BallControlObject;
     public bool pickerIsMove;
+    [SerializeField] private GameObject[] FinalEfect;
 
     int CountOfBallThrown;
 
@@ -99,7 +101,14 @@ public class GameManager : MonoBehaviour
             if (CurentCheckPointIndex==TotalCheckPoint)
             {
                 print("oyun bitti");
-                Time.timeScale = 0;
+                foreach (var item in FinalEfect)
+                {
+                    if (!item.activeInHierarchy)
+                    {
+                        item.SetActive(true);
+                    }
+                }
+                Invoke("TimeIsStop", 1.5f);
             }
             else
             {
@@ -117,6 +126,10 @@ public class GameManager : MonoBehaviour
         {
             print("kaybettin");
         }
+    }
+    void TimeIsStop()
+    {
+        Time.timeScale = 0;
     }
    
     public void CountBall()
@@ -136,5 +149,9 @@ public class GameManager : MonoBehaviour
         PickerPalletActive = true;
         PickerPalletObject[0].SetActive(true);
         PickerPalletObject[1].SetActive(true);
+    }
+    public void BonusBallsAdd(int bonusBallIndex)
+    {
+        BonusBalls[bonusBallIndex].SetActive(true);
     }
 }
