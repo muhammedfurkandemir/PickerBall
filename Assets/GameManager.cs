@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
     int TotalCheckPoint;
     int CurentCheckPointIndex;
 
+    float fingerPositionX;
+
     [SerializeField] private List<BallAreaTechnicalOperation> _BallAreaTechnicalOperation = new List<BallAreaTechnicalOperation>();
     void Start()
     {
@@ -48,6 +50,29 @@ public class GameManager : MonoBehaviour
 
             if (Time.timeScale!=0)
             {
+
+                if (Input.touchCount>0)
+                {
+                    Touch touch = Input.GetTouch(0);
+                    Vector3 touchPosition = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, 10f));
+                    switch (touch.phase)
+                    {
+                        case TouchPhase.Began:
+                            fingerPositionX = touchPosition.x - PickerObject.transform.position.x;
+                            //finger position picker ile parmak arasındaki x konumundaki mesafeyi alır.
+                            break;
+                        case TouchPhase.Moved:
+                            if ( touchPosition.x - fingerPositionX > -1.15f && touchPosition.x - fingerPositionX < 1.15f )
+                            {
+                                PickerObject.transform.position = Vector3.Lerp(PickerObject.transform.position,
+                                    new Vector3(touchPosition.x - fingerPositionX, PickerObject.transform.position.y,
+                                    PickerObject.transform.position.y), 3f);
+                            }
+                            break;
+                       
+                    }
+                }
+
                 if (Input.GetKey(KeyCode.LeftArrow))
                 {
                     PickerObject.transform.position = Vector3.Lerp(PickerObject.transform.position, new Vector3
