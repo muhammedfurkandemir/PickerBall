@@ -5622,7 +5622,7 @@ GameObject:
   - component: {fileID: 82652920}
   - component: {fileID: 82652919}
   m_Layer: 0
-  m_Name: CheckPointGecme (4)
+  m_Name: CheckPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11829,7 +11829,7 @@ GameObject:
   m_Component:
   - component: {fileID: 267476157}
   m_Layer: 0
-  m_Name: CheckPointPool
+  m_Name: CheckPointEfectPool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20079,7 +20079,7 @@ GameObject:
   - component: {fileID: 613883447}
   - component: {fileID: 613883446}
   m_Layer: 0
-  m_Name: CheckPointGecme (1)
+  m_Name: CheckPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33527,7 +33527,7 @@ GameObject:
   - component: {fileID: 1133752758}
   - component: {fileID: 1133752754}
   m_Layer: 0
-  m_Name: Asansor
+  m_Name: Elevator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37076,7 +37076,7 @@ GameObject:
   - component: {fileID: 1404903702}
   - component: {fileID: 1404903703}
   m_Layer: 0
-  m_Name: Asansor
+  m_Name: Elevator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37209,7 +37209,7 @@ GameObject:
   - component: {fileID: 1417035037}
   - component: {fileID: 1417035036}
   m_Layer: 0
-  m_Name: CheckPointGecme (3)
+  m_Name: CheckPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48881,7 +48881,7 @@ GameObject:
   - component: {fileID: 1595687333}
   - component: {fileID: 1595687332}
   m_Layer: 0
-  m_Name: AltZemin
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49710,7 +49710,7 @@ GameObject:
   - component: {fileID: 1665762076}
   - component: {fileID: 1665762075}
   m_Layer: 0
-  m_Name: Bariyeralani
+  m_Name: BarrierArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50516,7 +50516,7 @@ GameObject:
   - component: {fileID: 1808570599}
   - component: {fileID: 1808570598}
   m_Layer: 0
-  m_Name: Topalani
+  m_Name: BallArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52161,7 +52161,7 @@ GameObject:
   - component: {fileID: 1875066652}
   - component: {fileID: 1875066651}
   m_Layer: 0
-  m_Name: Bariyeralani
+  m_Name: BarrierArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54585,7 +54585,7 @@ GameObject:
   - component: {fileID: 2099779805}
   - component: {fileID: 2099779804}
   m_Layer: 0
-  m_Name: Topalani
+  m_Name: BallArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54763,7 +54763,7 @@ GameObject:
   - component: {fileID: 2134057278}
   - component: {fileID: 2134057277}
   m_Layer: 0
-  m_Name: CheckPointGecme (2)
+  m_Name: CheckPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59622,7 +59622,7 @@ GameObject:
   - component: {fileID: 160250813111506012}
   - component: {fileID: 160250813111506011}
   m_Layer: 0
-  m_Name: Kol_2
+  m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59924,7 +59924,7 @@ GameObject:
   - component: {fileID: 1390915415649258441}
   - component: {fileID: 1390915415649258440}
   m_Layer: 0
-  m_Name: OnParca
+  m_Name: Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69526,7 +69526,7 @@ GameObject:
   - component: {fileID: 2193681764207378834}
   - component: {fileID: 2193681764207378833}
   m_Layer: 0
-  m_Name: Kol_1
+  m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69620,7 +69620,7 @@ GameObject:
   - component: {fileID: 2158282033748181541}
   - component: {fileID: 2128248470280411233}
   m_Layer: 0
-  m_Name: CheckPointGecme
+  m_Name: CheckPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69956,7 +69956,7 @@ GameObject:
   - component: {fileID: 605872300954400575}
   - component: {fileID: 3726963313701964597}
   m_Layer: 0
-  m_Name: Bariyeralani
+  m_Name: BarrierArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70123,7 +70123,7 @@ GameObject:
   - component: {fileID: 5438891341379411164}
   - component: {fileID: 5438891341379411165}
   m_Layer: 0
-  m_Name: Asansor
+  m_Name: Elevator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70197,7 +70197,7 @@ GameObject:
   - component: {fileID: 668079484070768835}
   - component: {fileID: 5627315420134021897}
   m_Layer: 0
-  m_Name: Topalani
+  m_Name: BallArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70870,7 +70870,7 @@ GameObject:
   - component: {fileID: 7131384278951706961}
   - component: {fileID: 7131384278951753969}
   m_Layer: 0
-  m_Name: YildizliPuf
+  m_Name: Star
   m_TagString: FxTemporaire
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
